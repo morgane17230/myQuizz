@@ -1,0 +1,13 @@
+<%- include ('./partials/header.ejs') %>
+<h1 class="title" style="color: #<%= tag.color %>"><%= tag.name %></h1>
+<div class="tag-container">
+  <% for (const quiz of tag.quizzes) { %>
+  <div class="card" style="border-color: #<%= tag.color %>;">
+    <span class="quizz-title"><%= quiz.title %> </span>
+    <span class="author-link"><%= quiz.author.firstname %></span>
+    <a class="card-button" style="background-color: #<%= tag.color %>;" href="/quiz/<%= quiz.id %>?page=1">Jouer</a>
+  </div>
+  <% } %>
+</div>
+
+<%- include ('./partials/footer.ejs') %>

@@ -1,0 +1,66 @@
+<%- include('./partials/header') %>
+
+<div>
+    <h1>Inscription</h1>
+    <form action="<%= (locals.login) ? '/profil' : '/inscription'%>" method="post">
+      <div>
+        <input
+          type="text"
+          id="lastname"
+          name="lastname"
+          placeholder="Nom"
+          value="<%= (locals.login) ? locals.login.lastname : ''%>"
+        />
+        <label for="firstname">Nom</label>
+      </div>
+      <div>
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          placeholder="Prénom"
+          value="<%=(locals.login) ? locals.login.firstname : ''%>"
+        />
+        <label for="firstname">Prénom</label>
+      </div>
+      <div>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          value="<%=(locals.login) ? locals.login.email : ''%>"
+        />
+        <label for="email">Email</label>
+      </div>
+      <div>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Mot de passe"
+          
+        />
+        <label for="password">Mot de passe</label>
+      </div>
+      <div>
+        <input
+          type="password"
+          id="passwordConfirm"
+          name="passwordConfirm"
+          placeholder="Mot de passe"
+        />
+        <label for="passwordConfirm">Confirmez votre mot de passe</label>
+      </div>
+      <button type="submit">Valider</button>
+    </form>
+    <% if(locals.errors) { %>
+      <div class="errors">
+          <% for(const error of errors) { %>
+          <%=error%><br />
+          <% } %>
+      </div>
+  <% } %>
+  </div>
+
+<%- include('./partials/footer') %>

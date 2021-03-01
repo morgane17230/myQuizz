@@ -1,0 +1,28 @@
+<%- include ('./partials/header.ejs') %>
+<div class="result-container">
+  <h1>Votre score : <%= score %> / 10</h1>
+
+  <% for (let i = 0; i < quiz.questions.length; i++){%>
+  <div class="result-content">
+    <span class="question-result"
+      ><%= i + 1 %>. <%= quiz.questions[i].question %></span
+    >
+    <% if (results[i] === true){ %>
+    <span class="mdi mdi-check" style="color: green">
+      Bravo ! C'est la bonne réponse !
+    </span>
+    <% } else { %>
+    <span class="mdi mdi-close" style="color: red">
+      Dommage ! La réponse était : <%= quiz.questions[i].good_answer.description
+      %>
+    </span>
+    <% } %>
+    <div class="mdi mdi-lightbulb-on mdi-24px">
+      <%= quiz.questions[i].anecdote %>
+    </div>
+  </div>
+  <% } %>
+
+  <a href="/">Accueil</a>
+</div>
+<%- include ('./partials/footer.ejs') %>

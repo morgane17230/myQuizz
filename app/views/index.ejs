@@ -1,0 +1,10 @@
+<%- include ('./partials/header.ejs') %>
+
+<div class="tag-container">
+  <% for (const tag of tags) { %>
+    <a href="/tags/<%= tag.id %>" class="tag-link" style="background-color: #<%= tag.color %>"><%= tag.name %> </a>
+    <% } %>
+  
+</div>
+
+<%- include ('./partials/footer.ejs') %>

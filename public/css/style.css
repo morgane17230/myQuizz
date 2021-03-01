@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap");
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url("../img/board-5599246_1920.png");
+}
+
+/* header */
+
+.header {
+  display: flex;
+  background-color: rgba(12, 12, 12, 0.7);
+  height: 10vh;
+  justify-content: space-between;
+}
+.header__title {
+  font-size: 3em;
+  font-family: "Hachi Maru Pop", cursive;
+  align-self: center;
+  padding-left: 1em;
+  color: white;
+}
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  align-self: flex-end;
+  padding-right: 0.5em;
+}
+
+.nav-link {
+  display: block;
+  text-align: center;
+  font-size: 1.5em;
+  align-self: flex-end;
+  color: white;
+  padding: 0.5em 2em;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover {
+  border-bottom: 3px solid grey;
+}
+
+/* homePage */
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 3em;
+  justify-content: center;
+  align-self: center;
+}
+
+.tag-link {
+  display: block;
+  text-align: center;
+  width: 20%;
+  padding: 1em 0;
+  margin: 0.5em;
+  font-size: 2em;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px 5px rgba(12, 12, 12, 0.43);
+  color: black;
+}
+
+.tag-link:focus {
+  box-shadow: none;
+}
+
+/* category page */
+
+.title {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.card-title {
+  font-size: 3em;
+  text-align: center;
+  padding-top: 1em;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  justify-content: space-evenly;
+  border: 2px solid rgba(12, 12, 12, 0.7);
+  text-align: center;
+  margin: 1em;
+  padding: 1em 0;
+  border-radius: 20px;
+}
+
+.quizz-title {
+  display: block;
+  font-size: 2em;
+  padding: 1em 0;
+  color: rgba(12, 12, 12, 0.7);
+}
+
+.author-link {
+  display: block;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.card-button {
+  display: block;
+  text-align: center;
+  width: 60%;
+  padding: 0.5em 0;
+  align-self: center;
+  font-size: 1.5em;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px 5px rgba(12, 12, 12, 0.43);
+  color: black;
+}
+
+.card-button:focus {
+  box-shadow: none;
+}
+
+/* quizz page */
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70vh;
+  justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.623);
+  border-radius: 30px;
+  margin: 2em;
+}
+.quiz-title {
+  text-align: center;
+}
+.question-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 50vh;
+  justify-content: space-evenly;
+}
+.question-span {
+  font-size: 2em;
+  font-weight: bold;
+}
+.answer-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 50%;
+  text-align: center;
+  justify-content: space-evenly;
+  align-content: space-between;
+}
+.answer {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.answer label {
+  margin: 2em 0;
+}
+.answer input {
+  margin: 0 auto;
+}
+.quiz-button {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  border: none;
+  outline-style: none;
+  width: 20%;
+  padding: 0.5em 0;
+  font-size: 1.5em;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px 5px rgba(12, 12, 12, 0.43);
+  color: black;
+}
+.quiz-button:focus {
+  box-shadow: none;
+}
+
+/* result page */
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  margin: 3em auto;
+  background-color: #f0f8ff9b;
+  width: 50%;
+  border-radius: 20px;
+  padding: 2em;
+  line-height: 1.5em;
+}
+.question-result {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.result-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+/* login page */
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 20em;
+  justify-content: center;
+  align-self: center;
+  margin: 0 auto;
+  background-color: rgba(12, 12, 12, 0.43);
+  border-radius: 20px;
+}
+
+.input-container {
+  align-self: center;
+  width: 30%;
+  padding: 0.5em;
+}
+
+.input {
+  width: 100%;
+  height: 2em;
+  border-radius: 10px;
+  border: none;
+  border-bottom: 3px solid rgb(42, 42, 42);
+  padding: 0.5em;
+}
+
+.form-button {
+  width: fit-content;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  font-size: 1.5em;
+  align-self: center;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(73, 43, 121);
+  color: black;
+  border-bottom: 3px solid rgb(42, 42, 42);
+}
+
+/* 404 */
+
+h1 {
+  font-weight: bold;
+  font-size: 3em;
+  padding-bottom: 1em;
+}
+/* footer */
+
+.footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(12, 12, 12, 0.7);
+  padding: 1em;
+  color: white;
+}
