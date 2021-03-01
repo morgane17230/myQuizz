@@ -1,7 +1,8 @@
 const { Tag } = require("../models/");
 
 const mainController = {
-  homePage: async (_, res) => {
+  homePage: async (req, res) => {
+    req.session.score = 0;
     try {
       const tags = await Tag.findAll();
       res.render("index", { tags });

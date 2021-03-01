@@ -1,30 +1,45 @@
 const { Quiz } = require("../models");
 
-exports.getQuiz = async (req, res) => {
-  
-  const pageSize = 1;
-  const offset = (page - 1) * pageSize;
-  const limit = 1;
+(exports.getQuizzes = async (req, res) => {
   try {
-    const quiz = await Quiz.findByPk(Number(req.params.id), {
+    const quizzes = await Quiz.findAll({
       include: [
-        { association: "author" },
+        "author",
         {
-          association: "questions",
-          limit,
-          offset,
-          subQuery: true,
-          include: ["answers", "level"],
+          association: "tags",
         },
-        { association: "tags" },
       ],
     });
-  res.render("quiz", { quiz, page });
+    res.render("allQuizzes", { quizzes });
   } catch (err) {
     console.trace(err);
-    return res.status(500).send(err);
+    res.status(500).send(err);
   }
-};
+}),
+  (exports.getQuiz = async (req, res) => {
+    const pageSize = 1;
+    const offset = (page - 1) * pageSize;
+    const limit = 1;
+    try {
+      const quiz = await Quiz.findByPk(Number(req.params.id), {
+        include: [
+          { association: "author" },
+          {
+            association: "questions",
+            limit,
+            offset,
+            subQuery: true,
+            include: ["answers", "level"],
+          },
+          { association: "tags" },
+        ],
+      });
+      res.render("quiz", { quiz, page });
+    } catch (err) {
+      console.trace(err);
+      return res.status(500).send(err);
+    }
+  });
 
 exports.playQuiz = async (req, res, next) => {
   const quiz = await Quiz.findByPk(Number(req.params.id), {
@@ -34,13 +49,12 @@ exports.playQuiz = async (req, res, next) => {
     },
   });
 
-  quiz.questions.forEach(question  => {
-   
+  quiz.questions.forEach((question) => {
     if (req.body[`question-${question.id}`]) {
       let userAnswer = req.body[`question-${question.id}`];
 
-     req.session.answers.push(userAnswer);
-      if (Number(userAnswer) !== question.good_answer.id){
+      req.session.answers.push(userAnswer);
+      if (Number(userAnswer) !== question.good_answer.id) {
         req.session.results.push(false);
       } else {
         req.session.score++;
@@ -48,12 +62,14 @@ exports.playQuiz = async (req, res, next) => {
       }
     }
   });
-  if (page < 10){
-    res.redirect(`/quiz/${quiz.id}?page=${page + 1}`)
+  if (page < 10) {
+    res.redirect(`/quiz/${quiz.id}?page=${page + 1}`);
   } else {
-     res.render("results", { score: req.session.score, answers: req.session.answers, results: req.session.results, quiz });
+    res.render("results", {
+      score: req.session.score,
+      answers: req.session.answers,
+      results: req.session.results,
+      quiz,
+    });
   }
-   
-  
-}
-
+};

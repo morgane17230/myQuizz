@@ -1,7 +1,11 @@
 <%- include ('./partials/header.ejs') %>
 <div class="result-container">
-  <h1>Votre score : <%= score %> / 10</h1>
-
+  <div class="result-header">
+    <h1>Votre score : <%= score %> / 10</h1>
+    <a href="/" class="quiz-button">Accueil</a>
+    
+  </div>
+  
   <% for (let i = 0; i < quiz.questions.length; i++){%>
   <div class="result-content">
     <span class="question-result"
@@ -23,6 +27,6 @@
   </div>
   <% } %>
 
-  <a href="/">Accueil</a>
+  
 </div>
 <%- include ('./partials/footer.ejs') %>

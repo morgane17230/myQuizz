@@ -1,0 +1,12 @@
+<%- include ('./partials/header.ejs') %>
+<div class="tag-container">
+  <% for (const quiz of quizzes) { %>
+        <div class="card">
+            <span class="quizz-title"><%= quiz.title %> </span>
+            <span class="author-link"><%= quiz.author.firstname %></span>
+            <a class="card-button" href="/quiz/<%= quiz.id %>?page=1">Jouer</a>
+          </div>
+  <% } %>
+</div>
+
+<%- include ('./partials/footer.ejs') %>

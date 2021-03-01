@@ -12,6 +12,7 @@ router.get("/", mainController.homePage);
 router.get("/tags/:id", tagController.getTag);
 
 // Quiz
+router.get("/quizzes", quizController.getQuizzes)
 router.get("/quiz/:id", quizController.getQuiz);
 router.post("/quiz/:id", quizController.playQuiz);
 
